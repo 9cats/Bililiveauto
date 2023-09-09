@@ -55,7 +55,7 @@ async function processFile(filepath, roomid, name, fileopentime) {
   async function rcUpload(uploadFormat, originFormat) {
     debug &&
       console.log(`上传 ${uploadFormat} 至 ${rclonePath}/${roomid}-${name}/${timeid}/`);
-    const results = rclone.copy(`${bilifilePath}/${filepathNoExtension}.${uploadFormat}`, `${rclonePath}/${roomid}-${name}/${timeid}/`, {
+    const results = rclone.copy(`${bilifilePath}/${filepathNoExtension}.${uploadFormat}`, `${rclonePath}/${roomid}-${name}/`, {
       "ignore-errors": true
     });
     results.stdout.on("data", (data) => {
