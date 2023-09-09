@@ -3,7 +3,7 @@ dotenv.config()
 const express = require('express');
 const app = express();
 const processFile = require('./processFile')
-const appriseNotice = require("./apprise")
+//const appriseNotice = require("./apprise")
 
 const PORT = process.env.port || 8081;
 
@@ -25,15 +25,15 @@ app.post('/', function (req, res) {
       break;
     case "StreamStarted":
       const startedBanner = `BiliLive提醒: "${Name}"的直播开始了，快来看看吧！`;
-      appriseNotice(startedBanner, text);
+      //appriseNotice(startedBanner, text);
       break;
     case "SessionStarted":
       const recordingBanner = `BiliLive提醒: "${Name}"的直播已经开始录制了！\n如果赶不上直播, 也可以看回放哦!`;
-      appriseNotice(recordingBanner, text);
+      //appriseNotice(recordingBanner, text);
       break;
     case "StreamEnded":
       const endedBanner = `BiliLive提醒: "${Name}"的直播结束了，欢迎下次再观看！`;
-      appriseNotice(endedBanner, text);
+      //appriseNotice(endedBanner, text);
       break;
     default:
       console.log(`Webhook: 判断类型: ${EventType} => 提醒未发送`);
